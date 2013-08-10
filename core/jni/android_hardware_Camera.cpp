@@ -394,8 +394,8 @@ static void android_hardware_Camera_sendHistogramData(JNIEnv *env, jobject thiz)
    sp<Camera> camera = get_native_camera(env, thiz, &context);
    if (camera == 0) return;
 
-   rc = camera->sendCommand(CAMERA_CMD_HISTOGRAM_SEND_DATA, 0, 0);
-
+   // rc = camera->sendCommand(CAMERA_CMD_HISTOGRAM_SEND_DATA, 0, 0);
+   rc = NO_ERROR;
    if (rc != NO_ERROR) {
       jniThrowException(env, "java/lang/RuntimeException", "send histogram data failed");
     }
@@ -410,11 +410,11 @@ static void android_hardware_Camera_sendHistogramData(JNIEnv *env, jobject thiz)
    sp<Camera> camera = get_native_camera(env, thiz, &context);
    if (camera == 0) return;
 
-   if(mode == true)
-      rc = camera->sendCommand(CAMERA_CMD_HISTOGRAM_ON, 0, 0);
-   else
-      rc = camera->sendCommand(CAMERA_CMD_HISTOGRAM_OFF, 0, 0);
-
+   // if(mode == true)
+      // rc = camera->sendCommand(CAMERA_CMD_HISTOGRAM_ON, 0, 0);
+   // else
+     // rc = camera->sendCommand(CAMERA_CMD_HISTOGRAM_OFF, 0, 0);
+   rc = NO_ERROR;
    if (rc != NO_ERROR) {
       jniThrowException(env, "java/lang/RuntimeException", "set histogram mode failed");
      }
